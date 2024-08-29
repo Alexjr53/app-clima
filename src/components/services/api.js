@@ -1,4 +1,4 @@
-const apiKey = '8649b544afb81d42dba01c4e464d3608';
+const apiKey = process.env.REACT_APP_API_KEY;
 const lang = 'pt_br'
 
 export const searchLocation = async (location) =>{
