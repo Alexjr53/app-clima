@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/app-clima/static/css/main.78e6639a.css",
+    "main.js": "/app-clima/static/js/main.e6127f60.js",
+    "static/media/bandeira-padrao.png": "/app-clima/static/media/bandeira-padrao.6bd20f3ce761f7399dc5.png",
+    "index.html": "/app-clima/index.html",
+    "main.78e6639a.css.map": "/app-clima/static/css/main.78e6639a.css.map",
+    "main.e6127f60.js.map": "/app-clima/static/js/main.e6127f60.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.78e6639a.css",
+    "static/js/main.e6127f60.js"
+  ]
+}
