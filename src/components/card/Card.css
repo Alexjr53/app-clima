@@ -1,0 +1,159 @@
+.card{
+    background-color: #5c54ed;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.24);
+    padding: 4rem;
+    color: #fdfdfd;
+    border-radius: 1rem;
+}
+
+.card h1{
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+/*form*/
+.formContainer{
+    display: flex;
+}
+
+.formContainer input{
+    flex: 1;
+    border: none;
+    padding: 1.5rem;
+    border-radius: 0.4rem;
+}
+
+.formContainer button{
+    min-width: 5rem;
+    padding: 1rem;
+    margin-left: 0.8rem;
+    background-color: #8dd0f5;
+    color: #fdfdfd;
+    border: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+}
+
+.errorContainer{
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+.errorContainer .error{
+    font-size: 1.7rem;
+    color: white;
+    font-weight: bold;
+}
+
+.resetButton{
+    font-size: 1.6rem;
+    border: none;
+    background-color: #8dd0f5;
+    padding: 1rem;
+    border-radius: 1rem;
+    color: white;
+    cursor: pointer;
+}
+
+/*clima*/
+.weatherData{
+    border-top: 0.1rem solid #fff;
+    margin-top: 3rem;
+    padding-top: 3rem;
+    text-align: center;
+}
+
+.weatherData .locationName{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 3rem;
+}
+
+.weatherData .locationName i{
+    font-size: 2rem;
+}
+
+.weatherData .locationName .country{
+    height: 2rem;
+}
+
+.weatherData .margin-span{
+    margin: 1rem;
+}
+
+.weatherData .currentTemp{
+    font-size: 4rem;
+}
+
+
+.tempComtainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.tempComtainer p{
+    font-size: 2.5rem;
+}
+
+.descriptionContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0;
+}
+
+.descriptionContainer p{
+    font-size: 2.7rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.descriptionContainer img{
+    height: 7rem;
+}
+
+.detailsContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.detailsContainer p{
+    font-size: 2.3rem;
+}
+
+.detailsContainer .humidity{
+    border-right: 0.1rem solid #fff;
+    margin: 1.5rem;
+    padding: 0.6rem;
+}
+
+.hide{
+    display: none;
+}
+
+.locationOptions{
+    margin-top: 5rem;
+    max-width: 35rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.locationOptions .options{
+    padding: 1rem;
+    color: white;
+    font-size: 1.7rem;
+    background-color: #8dd0f5;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+}
