@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# App Clima Agora 
+Este projeto foi desenvolvido para apresentar o clima atual de cidades ao redor do mundo, utilizando dados meteorológicos em tempo real
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Índice
+- [Sobre o Projeto](#📄-sobre-o-projeto)
+- [Tecnologias Utilizadas](#🛠️-tecnologias-utilizadas)
+- [Funcionalidades](#🖼️-funcionalidades)
+- [Links](#🔗-links)
+- [Contato](#💬-contato)
 
-## Available Scripts
+# 📄 Sobre o Projeto
 
-In the project directory, you can run:
+Clima Agora é uma aplicação web que fornece informações detalhadas sobre as condições climáticas atuais.  A aplicação permite que você busque o clima de qualquer cidade e visualize em formato detalhado, com dados como temperatura, umidade e velocidade do vento.
 
-### `npm start`
+# 🛠️ Tecnologias Utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- HTML5: Estrutura do site.
+- CSS3: Estilização e layout responsivo.
+- JavaScript: Interatividade e manipulação do DOM.
+- APIs Meteorológicas: Para obter dados climáticos em tempo real e previsões.
+- Git & GitHub: Controle de versão e hospedagem do código.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# 🖼️ Funcionalidades
+- Busca de Cidade: Pesquise o clima atual e a previsão para qualquer cidade.
+- Exibição de Imagens: Mostra imagens relacionadas ao clima e bandeiras dos países.
+- Tratamento de Erros: Mensagens de erro amigáveis para entradas inválidas ou problemas de conexão.
 
-### `npm test`
+# 🔗 Links
+Acesse o app através dos links abaixo: 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Site: [Clima Agora](https://alexjr53.github.io/app-clima/)
+- Repositório GitHub: [app-clima](https://github.com/Alexjr53/app-clima)
 
-### `npm run build`
+# 💬 Contato
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Se você tiver interesse em saber mais sobre o meu trabalho ou quiser discutir uma oportunidade, entre em contato comigo através dos links abaixo:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- WhatsApp: (11) 99711-5309
+- GitHub: @Alexjr53
+- LinkedIn: [Alexsandro Junior](https://www.linkedin.com/in/alexsandro-junior-460a53271/)
+- E-mail: alexsandro.rosajunior97@gmail.com
