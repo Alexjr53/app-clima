@@ -1,0 +1,19 @@
+.locationOptions{
+    margin-top: 5rem;
+    max-width: 35rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.locationOptions .options{
+    padding: 1rem;
+    color: white;
+    font-size: 1.7rem;
+    background-color: #8dd0f5;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+}

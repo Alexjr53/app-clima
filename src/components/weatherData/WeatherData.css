@@ -1,0 +1,85 @@
+/*clima*/
+.weatherData{
+    border-top: 0.1rem solid #fff;
+    margin-top: 3rem;
+    padding-top: 3rem;
+    text-align: center;
+}
+
+.weatherData .locationName{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 3rem;
+}
+
+.weatherData .locationName i{
+    font-size: 2rem;
+}
+
+.weatherData .locationName .country{
+    height: 2rem;
+}
+
+.weatherData .margin-span{
+    margin: 1rem;
+}
+
+.weatherData .currentTemp{
+    font-size: 4rem;
+}
+
+
+.tempComtainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.tempComtainer p{
+    font-size: 2.5rem;
+}
+
+.descriptionContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0;
+}
+
+.descriptionContainer p{
+    font-size: 2.7rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.descriptionContainer img{
+    height: 7rem;
+}
+
+.detailsContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.detailsContainer p{
+    font-size: 2.3rem;
+}
+
+.detailsContainer .humidity{
+    border-right: 0.1rem solid #fff;
+    margin: 1.5rem;
+    padding: 0.6rem;
+}
+
+.resetButton{
+    font-size: 1.6rem;
+    border: none;
+    background-color: #8dd0f5;
+    padding: 1rem;
+    border-radius: 1rem;
+    color: white;
+    cursor: pointer;
+}
+
