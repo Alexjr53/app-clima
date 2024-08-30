@@ -1,4 +1,5 @@
 const apiKey = process.env.REACT_APP_API_KEY;
+const apikeyImg = process.env.REACT_APP_API_KEY_IMAGE;
 const lang = 'pt_br'
 
 export const searchLocation = async (location) =>{
@@ -24,4 +25,12 @@ export const searchFlags = async (country) =>{
         console.error('Error fetching flag:', error);
         return '';
     }
+}
+
+
+export const searchImages = async (location) =>{
+    const imagesUrl = `https://pixabay.com/api/?key=${apikeyImg}&q=${location}&image_type=photo`;
+    const response = await fetch(imagesUrl);
+    const imagesData = response.json();
+    return imagesData
 }

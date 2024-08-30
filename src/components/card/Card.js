@@ -1,131 +1,90 @@
-// comentar o codigo
-// criar outros componentes / reutilizar componentes
-// adicionar imagens de fundo que tenha relação com a cidade pesquisada
-// arrumar o App.js
-
-
-
-
-import { searchLocation, searchFlags } from '../services/api'
-import { useState } from 'react';
 import './Card.css'
+import { searchLocation, searchFlags, searchImages } from '../services/api'
+import { useEffect, useState } from 'react';
 import defaultFlag from '../../assets/images/bandeira-padrao.png';
+import defaultBackground from '../../assets/images/background-padrao.jpg'
+import SearchInput from '../searchInput/SearchInput';
+import ErrorMessage from '../errorMessage/ErrorMessage';
+import WeatherData from '../weatherData/WeatherData';
+import LocationOptions from '../locationOptions/LocationOptions';
+
 
 function Card() {
     const [location, setLocation] = useState('');
-    const [isVisible, setIsVisible] = useState(false);
-    const [weatherData, setweatherData] = useState(null);
+    const [weatherData, setweatherData] = useState(false);
     const [flagUrl, setFlagUrl] = useState('');
-    const [errorMessage, setErrorMessage] = useState('')
+    const [errorMessage, setErrorMessage] = useState('');
+    const [imagesUrl, setImagesUrl] = useState('');
 
-    const handleInputChange = (e) => {
-        setLocation(e.target.value)
+    useEffect(()=>{
+        if (imagesUrl) {
+            document.body.style.backgroundImage = `url(${imagesUrl})`;
+        }
+    }, [imagesUrl]);
+
+    const handleInputChange = (event) => {
+        setLocation(event.target.value) //Atualiza o estado 'location' com o valor do input
     }
 
     const handleSearch = async (location) => {
         try {
-            if(!location){ // valida se o campo do inputa está vazio
-                setweatherData(null);
+            if(!location){ // valida se o campo do input está vazio 
+                setweatherData(false);
                 setErrorMessage('Por favor, digite o nome de uma cidade ou Pais');
                 return; 
             }
 
-            setLocation(location)
-            setIsVisible(true);
-            const data = await searchLocation(location);
-
-            if (data.cod !== 200) { //valida se o nome da cidade existe
-                setErrorMessage('Local não encontrado. Por favor tente novamente')
-                setweatherData(null);
+            setLocation(location);
+            
+            const data = await searchLocation(location); //usa location para buscar os dados de clima
+            if (data.cod !== 200) { //verifica se a api retornou algo invalido / indica que a cidade ou pais não foram encontrados
+                setErrorMessage('Local não encontrado. Por favor tente novamente');
+                setLocation('');
+                setweatherData(false);
                 return; 
             }
-            setweatherData(data);
+            
+            const {hits} = await searchImages(location);//usa location para buscar a imagem do local correspondente
+            setImagesUrl(hits[0].webformatURL)//armazena a url da imagem
+
+            const dataFlag = await searchFlags(data.sys.country)//usa o codigo do pais para poder buscar na api das bandeiras
+            setFlagUrl(dataFlag[0].flags.png);//armazena a url da imagem
+
+            setweatherData(data); //armazena os dados que retornam da função searchLocation
             setErrorMessage('');
 
-            const country = data.sys.country
-            const dataFlag = await searchFlags(country)
-            setFlagUrl(dataFlag[0].flags.png);
             
         } catch (error) {
+            setweatherData(false);
+            setImagesUrl(defaultBackground)
             setErrorMessage('Ocorreu um erro ao buscar os dados. Tente novamente mais tarde.')
         }
     }
 
-    const handleKeyDown = (event)=>{
+    const handleKeyDown = (event)=>{ //faz a busca com o "enter"
         if (event.key === 'Enter') {
             handleSearch(location)
         }
     }
 
-    const resetState = ()=>{
+    const resetState = ()=>{ //Reseta o estado do componente para os valores iniciais
         setErrorMessage('');
-        setweatherData(null);
+        setweatherData(false);
         setLocation('');
+        setImagesUrl(defaultBackground)
     }
 
     return (
         <div className="card">
 
             <h1>Confira o clima de uma cidade:</h1>
-            
-            <div className="formContainer">
-                <input className='mainInput' type="text" placeholder="Digite o nome da cidade" onKeyDown={handleKeyDown} onChange={handleInputChange} value={location}></input>
-                <button onClick={()=>handleSearch(location)}><i className="fa-solid fa-magnifying-glass"></i></button>
-            </div>
+            <SearchInput location={location} handleInputChange={handleInputChange} handleKeyDown={handleKeyDown} handleSearch={handleSearch}/>
+            <ErrorMessage errorMessage={errorMessage} resetState={resetState}/>
 
-            {errorMessage && 
-                <div className='errorContainer'>
-                    <p className='error'>{errorMessage}</p>
-                    <input className='resetButton' type='button' value="voltar" onClick={resetState}></input>
-                </div>
-            
-            }
-
-            {isVisible && weatherData ? (
-                <div className='weatherData'>
-                    <h2 className='locationName'>
-                        <i className="fa-solid fa-location-dot"></i>
-                        <span className='margin-span'>{weatherData.name}</span>
-                        <img className='country' src={flagUrl || defaultFlag} id="country" alt="Bandeira do pais"></img>
-                    </h2>
-
-                    <p className='currentTemp'>
-                        <span className='margin-span'>{parseInt(weatherData.main.temp)}</span>&deg;C
-                    </p>
-
-                    <div className='tempComtainer'>
-                        <p>Max / Min</p>
-                        <p className='tempMax'><span>{parseInt(weatherData.main.temp_max)}</span>&deg;/<span>{parseInt(weatherData.main.temp_min)}</span>&deg;</p>
-                    </div>
-                    
-                    <div className='descriptionContainer'>
-                        <p>{weatherData.weather[0].description}</p>
-                        <img src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`} alt="Condições do tempo"></img>
-                    </div>
-
-                    <div className='detailsContainer'>
-                        <p className='humidity'>
-                            <i className="fa-solid fa-droplet"></i>
-                            <span className='margin-span'>{weatherData.main.humidity} %</span>
-                        </p>
-
-                        <p>
-                            <i className="fa-solid fa-wind"></i>
-                            <span className='margin-span'>{(weatherData.wind.speed * 3.6).toFixed(1)} km/h</span>
-                        </p>
-                    </div>
-                    <input className='resetButton' type='button' value="voltar" onClick={resetState}></input>
-                </div>
-            ):( !errorMessage && (
-                <div className='locationOptions'>
-                   <input className='options' type='button' value='São Paulo' onClick={()=>handleSearch('São paulo')}></input>
-                   <input className='options' type='button' value='Rio de Janeiro' onClick={()=>handleSearch('Rio de Janeiro')}></input>
-                   <input className='options' type='button' value='Brasília' onClick={()=>handleSearch('Brasília')}></input>
-                   <input className='options' type='button' value='Nova york' onClick={()=>handleSearch('Nova york')}></input>
-                   <input className='options' type='button' value='Tokyo' onClick={()=>handleSearch('Tokyo')}></input>
-                   <input className='options' type='button' value='amsterdam' onClick={()=>handleSearch('amsterdam')}></input>
-                </div>
-                )
+            {weatherData ? (
+                <WeatherData weatherData={weatherData} flagUrl={flagUrl} resetState={resetState} defaultFlag={defaultFlag}/>
+            ):( 
+                !errorMessage && <LocationOptions handleSearch={handleSearch}/>
             )}
         </div>
     )
