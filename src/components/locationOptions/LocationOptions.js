@@ -1,14 +1,20 @@
 import './LocationOptions.css'
 
+const locations = [
+    'São Paulo',
+    'Rio de Janeiro',
+    'Brasília',
+    'Nova York',
+    'Tokyo',
+    'Amsterdam'
+];
+
 function LocationOptions({handleSearch}) {
     return (
         <div className='locationOptions'>
-            <input className='options' type='button' value='São Paulo' onClick={() => handleSearch('São paulo')}></input>
-            <input className='options' type='button' value='Rio de Janeiro' onClick={() => handleSearch('Rio de Janeiro')}></input>
-            <input className='options' type='button' value='Brasília' onClick={() => handleSearch('Brasília')}></input>
-            <input className='options' type='button' value='Nova york' onClick={() => handleSearch('Nova york')}></input>
-            <input className='options' type='button' value='Tokyo' onClick={() => handleSearch('Tokyo')}></input>
-            <input className='options' type='button' value='amsterdam' onClick={() => handleSearch('amsterdam')}></input>
+            {locations.map(location=>(
+                <input className='options' type='button' key={location} value={location} onClick={() => handleSearch(location)}></input>
+            ))}
         </div>
     );
 }
