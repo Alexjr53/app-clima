@@ -6,7 +6,7 @@
     text-align: center;
 }
 
-.weatherData .locationName{
+.locationName{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,22 +14,21 @@
     font-size: 3rem;
 }
 
-.weatherData .locationName i{
+.locationName i{
     font-size: 2rem;
 }
 
-.weatherData .locationName .country{
+.country{
     height: 2rem;
 }
 
-.weatherData .margin-span{
+.margin-span{
     margin: 1rem;
 }
 
-.weatherData .currentTemp{
+.currentTemp{
     font-size: 4rem;
 }
-
 
 .tempComtainer{
     display: flex;
@@ -82,4 +81,3 @@
     color: white;
     cursor: pointer;
 }
-
